@@ -32,13 +32,14 @@ namespace Vehicle_loan.Models
         public virtual DbSet<UserInfoTbl> UserInfoTbl { get; set; }
         public virtual DbSet<UserTbl> UserTbl { get; set; }
         public virtual DbSet<VehicleDetailsTbl> VehicleDetailsTbl { get; set; }
+        public virtual DbSet<ViewClientDetails> ViewClientDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=SUCHET;Database=VEHICLE_LOAN;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-R5B8HM6;Database=VEHICLE_LOAN;Trusted_Connection=True;");
             }
         }
 
@@ -47,7 +48,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<AdminTbl>(entity =>
             {
                 entity.HasKey(e => e.Aid)
-                    .HasName("PK__ADMIN_TB__DE508E2E77551353");
+                    .HasName("PK__ADMIN_TB__DE508E2EF841B63E");
 
                 entity.ToTable("ADMIN_TBL");
 
@@ -72,7 +73,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<BankAccTbl>(entity =>
             {
                 entity.HasKey(e => e.AccountNo)
-                    .HasName("PK__BANK_ACC__05BC0FE0516D9CD3");
+                    .HasName("PK__BANK_ACC__05BC0FE0FA1B29EE");
 
                 entity.ToTable("BANK_ACC_TBL");
 
@@ -85,7 +86,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<BankPaymentsTbl>(entity =>
             {
                 entity.HasKey(e => e.Bpid)
-                    .HasName("PK__BANK_PAY__3876B68C80B4737D");
+                    .HasName("PK__BANK_PAY__3876B68C3352B340");
 
                 entity.ToTable("BANK_PAYMENTS_TBL");
 
@@ -125,7 +126,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<CarMakeTbl>(entity =>
             {
                 entity.HasKey(e => e.CarMakeId)
-                    .HasName("PK__CAR_MAKE__44933269B58926B7");
+                    .HasName("PK__CAR_MAKE__44933269EFC25D05");
 
                 entity.ToTable("CAR_MAKE_TBL");
 
@@ -140,7 +141,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<EmploymentDetailsTbl>(entity =>
             {
                 entity.HasKey(e => e.Edid)
-                    .HasName("PK__EMPLOYME__277517574A9EC2BB");
+                    .HasName("PK__EMPLOYME__27751757577E7D8E");
 
                 entity.ToTable("EMPLOYMENT_DETAILS_TBL");
 
@@ -173,7 +174,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<LoanApplicationTbl>(entity =>
             {
                 entity.HasKey(e => e.Lappid)
-                    .HasName("PK__LOAN_APP__C7E9D0215B56E73F");
+                    .HasName("PK__LOAN_APP__C7E9D0215629E28D");
 
                 entity.ToTable("LOAN_APPLICATION_TBL");
 
@@ -215,7 +216,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<LoanDetailsTbl>(entity =>
             {
                 entity.HasKey(e => e.Ldtid)
-                    .HasName("PK__LOAN_DET__8C165699E8A413B1");
+                    .HasName("PK__LOAN_DET__8C16569907FCD3AB");
 
                 entity.ToTable("LOAN_DETAILS_TBL");
 
@@ -243,7 +244,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<StatusTbl>(entity =>
             {
                 entity.HasKey(e => e.StatusId)
-                    .HasName("PK__STATUS_T__D8827E7105E959DD");
+                    .HasName("PK__STATUS_T__D8827E7121B1A30B");
 
                 entity.ToTable("STATUS_TBL");
 
@@ -258,7 +259,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<ToeTbl>(entity =>
             {
                 entity.HasKey(e => e.Toeid)
-                    .HasName("PK__TOE_TBL__073C9EB72358D724");
+                    .HasName("PK__TOE_TBL__073C9EB799F5CFB1");
 
                 entity.ToTable("TOE_TBL");
 
@@ -273,7 +274,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<UserIdentityDocsTbl>(entity =>
             {
                 entity.HasKey(e => e.Uidid)
-                    .HasName("PK__USER_IDE__D06B57A57E6A56A5");
+                    .HasName("PK__USER_IDE__D06B57A50D6D3CD3");
 
                 entity.ToTable("USER_IDENTITY_DOCS_TBL");
 
@@ -310,7 +311,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<UserInfoTbl>(entity =>
             {
                 entity.HasKey(e => e.Uiid)
-                    .HasName("PK__USER_INF__B1FE7ED3D18BCA55");
+                    .HasName("PK__USER_INF__B1FE7ED3FA612C76");
 
                 entity.ToTable("USER_INFO_TBL");
 
@@ -380,7 +381,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<UserTbl>(entity =>
             {
                 entity.HasKey(e => e.Uid)
-                    .HasName("PK__USER_TBL__C5B19602DAAEC733");
+                    .HasName("PK__USER_TBL__C5B196020F783EAB");
 
                 entity.ToTable("USER_TBL");
 
@@ -400,7 +401,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<VehicleDetailsTbl>(entity =>
             {
                 entity.HasKey(e => e.VId)
-                    .HasName("PK__VEHICLE___B35D77ACBE7067AA");
+                    .HasName("PK__VEHICLE___B35D77ACE796566F");
 
                 entity.ToTable("VEHICLE_DETAILS_TBL");
 
@@ -408,19 +409,53 @@ namespace Vehicle_loan.Models
 
                 entity.Property(e => e.CarMakeId).HasColumnName("CAR_MAKE_ID");
 
-                entity.Property(e => e.CarModel)
-                    .HasColumnName("CAR_MODEL")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ExShowroomPrice)
-                    .HasColumnName("EX_SHOWROOM_PRICE")
-                    .HasColumnType("money");
-
                 entity.HasOne(d => d.CarMake)
                     .WithMany(p => p.VehicleDetailsTbl)
                     .HasForeignKey(d => d.CarMakeId)
                     .HasConstraintName("FK__VEHICLE_D__CAR_M__49C3F6B7");
+            });
+
+            modelBuilder.Entity<ViewClientDetails>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("VIEW_CLIENT_DETAILS");
+
+                entity.Property(e => e.AccountNo)
+                    .IsRequired()
+                    .HasColumnName("account_no")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Age).HasColumnName("age");
+
+                entity.Property(e => e.EmailId)
+                    .HasColumnName("email_id")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .HasColumnName("first_name")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Gender)
+                    .HasColumnName("gender")
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.LastName)
+                    .HasColumnName("last_name")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MobileNo)
+                    .HasColumnName("mobile_no")
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Uid).HasColumnName("uid");
             });
 
             OnModelCreatingPartial(modelBuilder);

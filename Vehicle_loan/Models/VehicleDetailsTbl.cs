@@ -11,8 +11,6 @@ namespace Vehicle_loan.Models
     {
         public int VId { get; set; }
         public int? CarMakeId { get; set; }
-        public decimal? ExShowroomPrice { get; set; }
-        public string CarModel { get; set; }
 
         public virtual CarMakeTbl CarMake { get; set; }
     }

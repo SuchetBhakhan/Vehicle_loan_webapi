@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\Vehicle_loan.csproj": {}
+    "C:\\Users\\USER\\source\\repos\\Vehicle_loan_webapi\\Vehicle_loan\\Vehicle_loan.csproj": {}
   },
   "projects": {
-    "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\Vehicle_loan.csproj": {
+    "C:\\Users\\USER\\source\\repos\\Vehicle_loan_webapi\\Vehicle_loan\\Vehicle_loan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\Vehicle_loan.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\Vehicle_loan_webapi\\Vehicle_loan\\Vehicle_loan.csproj",
         "projectName": "Vehicle_loan",
-        "projectPath": "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\Vehicle_loan.csproj",
-        "packagesPath": "C:\\Users\\SUCHET BHAKHAN\\.nuget\\packages\\",
-        "outputPath": "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\obj\\",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\Vehicle_loan_webapi\\Vehicle_loan\\Vehicle_loan.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\Vehicle_loan_webapi\\Vehicle_loan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SUCHET BHAKHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,6 +59,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
