@@ -12,6 +12,7 @@ namespace Vehicle_loan.Models
         public int Uiid { get; set; }
         public int? Uid { get; set; }
         public string FirstName { get; set; }
+        public string MiddleName { get; set; }
         public string LastName { get; set; }
         public int? Age { get; set; }
         public string Gender { get; set; }
@@ -22,7 +23,6 @@ namespace Vehicle_loan.Models
         public string PinCode { get; set; }
         public string AccountNo { get; set; }
 
-        public virtual BankAccTbl AccountNoNavigation { get; set; }
         public virtual UserTbl U { get; set; }
     }
 }

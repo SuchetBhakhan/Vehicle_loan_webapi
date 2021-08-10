@@ -20,12 +20,12 @@ namespace Vehicle_loan.Models
         }
 
         public virtual DbSet<AdminTbl> AdminTbl { get; set; }
-        public virtual DbSet<BankAccTbl> BankAccTbl { get; set; }
         public virtual DbSet<BankPaymentsTbl> BankPaymentsTbl { get; set; }
         public virtual DbSet<CarMakeTbl> CarMakeTbl { get; set; }
         public virtual DbSet<EmploymentDetailsTbl> EmploymentDetailsTbl { get; set; }
         public virtual DbSet<LoanApplicationTbl> LoanApplicationTbl { get; set; }
         public virtual DbSet<LoanDetailsTbl> LoanDetailsTbl { get; set; }
+        public virtual DbSet<PersonalInfo> PersonalInfo { get; set; }
         public virtual DbSet<StatusTbl> StatusTbl { get; set; }
         public virtual DbSet<ToeTbl> ToeTbl { get; set; }
         public virtual DbSet<UserIdentityDocsTbl> UserIdentityDocsTbl { get; set; }
@@ -47,7 +47,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<AdminTbl>(entity =>
             {
                 entity.HasKey(e => e.Aid)
-                    .HasName("PK__ADMIN_TB__DE508E2E77551353");
+                    .HasName("PK__ADMIN_TB__DE508E2E6D9231B0");
 
                 entity.ToTable("ADMIN_TBL");
 
@@ -69,23 +69,10 @@ namespace Vehicle_loan.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<BankAccTbl>(entity =>
-            {
-                entity.HasKey(e => e.AccountNo)
-                    .HasName("PK__BANK_ACC__05BC0FE0516D9CD3");
-
-                entity.ToTable("BANK_ACC_TBL");
-
-                entity.Property(e => e.AccountNo)
-                    .HasColumnName("ACCOUNT_NO")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<BankPaymentsTbl>(entity =>
             {
                 entity.HasKey(e => e.Bpid)
-                    .HasName("PK__BANK_PAY__3876B68C80B4737D");
+                    .HasName("PK__BANK_PAY__3876B68C07B8CC95");
 
                 entity.ToTable("BANK_PAYMENTS_TBL");
 
@@ -114,18 +101,18 @@ namespace Vehicle_loan.Models
                 entity.HasOne(d => d.Ldt)
                     .WithMany(p => p.BankPaymentsTbl)
                     .HasForeignKey(d => d.Ldtid)
-                    .HasConstraintName("FK__BANK_PAYM__LDTID__59FA5E80");
+                    .HasConstraintName("FK__BANK_PAYM__LDTID__571DF1D5");
 
                 entity.HasOne(d => d.U)
                     .WithMany(p => p.BankPaymentsTbl)
                     .HasForeignKey(d => d.Uid)
-                    .HasConstraintName("FK__BANK_PAYMEN__UID__59063A47");
+                    .HasConstraintName("FK__BANK_PAYMEN__UID__5629CD9C");
             });
 
             modelBuilder.Entity<CarMakeTbl>(entity =>
             {
                 entity.HasKey(e => e.CarMakeId)
-                    .HasName("PK__CAR_MAKE__44933269B58926B7");
+                    .HasName("PK__CAR_MAKE__4493326926D05595");
 
                 entity.ToTable("CAR_MAKE_TBL");
 
@@ -140,7 +127,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<EmploymentDetailsTbl>(entity =>
             {
                 entity.HasKey(e => e.Edid)
-                    .HasName("PK__EMPLOYME__277517574A9EC2BB");
+                    .HasName("PK__EMPLOYME__2775175775DA9688");
 
                 entity.ToTable("EMPLOYMENT_DETAILS_TBL");
 
@@ -162,18 +149,18 @@ namespace Vehicle_loan.Models
                 entity.HasOne(d => d.Toe)
                     .WithMany(p => p.EmploymentDetailsTbl)
                     .HasForeignKey(d => d.Toeid)
-                    .HasConstraintName("FK__EMPLOYMEN__TOEID__440B1D61");
+                    .HasConstraintName("FK__EMPLOYMEN__TOEID__412EB0B6");
 
                 entity.HasOne(d => d.U)
                     .WithMany(p => p.EmploymentDetailsTbl)
                     .HasForeignKey(d => d.Uid)
-                    .HasConstraintName("FK__EMPLOYMENT___UID__4316F928");
+                    .HasConstraintName("FK__EMPLOYMENT___UID__403A8C7D");
             });
 
             modelBuilder.Entity<LoanApplicationTbl>(entity =>
             {
                 entity.HasKey(e => e.Lappid)
-                    .HasName("PK__LOAN_APP__C7E9D0215B56E73F");
+                    .HasName("PK__LOAN_APP__C7E9D02119FB810D");
 
                 entity.ToTable("LOAN_APPLICATION_TBL");
 
@@ -204,18 +191,18 @@ namespace Vehicle_loan.Models
                 entity.HasOne(d => d.Status)
                     .WithMany(p => p.LoanApplicationTbl)
                     .HasForeignKey(d => d.StatusId)
-                    .HasConstraintName("FK__LOAN_APPL__STATU__52593CB8");
+                    .HasConstraintName("FK__LOAN_APPL__STATU__4F7CD00D");
 
                 entity.HasOne(d => d.U)
                     .WithMany(p => p.LoanApplicationTbl)
                     .HasForeignKey(d => d.Uid)
-                    .HasConstraintName("FK__LOAN_APPLIC__UID__5165187F");
+                    .HasConstraintName("FK__LOAN_APPLIC__UID__4E88ABD4");
             });
 
             modelBuilder.Entity<LoanDetailsTbl>(entity =>
             {
                 entity.HasKey(e => e.Ldtid)
-                    .HasName("PK__LOAN_DET__8C165699E8A413B1");
+                    .HasName("PK__LOAN_DET__8C1656996C764AEF");
 
                 entity.ToTable("LOAN_DETAILS_TBL");
 
@@ -232,18 +219,86 @@ namespace Vehicle_loan.Models
                 entity.HasOne(d => d.Lapp)
                     .WithMany(p => p.LoanDetailsTbl)
                     .HasForeignKey(d => d.Lappid)
-                    .HasConstraintName("FK__LOAN_DETA__LAPPI__5535A963");
+                    .HasConstraintName("FK__LOAN_DETA__LAPPI__52593CB8");
 
                 entity.HasOne(d => d.U)
                     .WithMany(p => p.LoanDetailsTbl)
                     .HasForeignKey(d => d.Uid)
-                    .HasConstraintName("FK__LOAN_DETAIL__UID__5629CD9C");
+                    .HasConstraintName("FK__LOAN_DETAIL__UID__534D60F1");
+            });
+
+            modelBuilder.Entity<PersonalInfo>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("PERSONAL_INFO");
+
+                entity.Property(e => e.AccountNo)
+                    .IsRequired()
+                    .HasColumnName("ACCOUNT_NO")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Age).HasColumnName("AGE");
+
+                entity.Property(e => e.EmailId)
+                    .HasColumnName("EMAIL_ID")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .HasColumnName("FIRST_NAME")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Gender)
+                    .HasColumnName("GENDER")
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.LastName)
+                    .HasColumnName("LAST_NAME")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MiddleName)
+                    .HasColumnName("MIDDLE_NAME")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MobileNo)
+                    .HasColumnName("MOBILE_NO")
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PinCode)
+                    .HasColumnName("PIN_CODE")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Uaddress)
+                    .HasColumnName("UADDRESS")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ucity)
+                    .HasColumnName("UCITY")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Uid).HasColumnName("UID");
+
+                entity.Property(e => e.Ustate)
+                    .HasColumnName("USTATE")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<StatusTbl>(entity =>
             {
                 entity.HasKey(e => e.StatusId)
-                    .HasName("PK__STATUS_T__D8827E7105E959DD");
+                    .HasName("PK__STATUS_T__D8827E71DA09AB45");
 
                 entity.ToTable("STATUS_TBL");
 
@@ -258,7 +313,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<ToeTbl>(entity =>
             {
                 entity.HasKey(e => e.Toeid)
-                    .HasName("PK__TOE_TBL__073C9EB72358D724");
+                    .HasName("PK__TOE_TBL__073C9EB7AC15C803");
 
                 entity.ToTable("TOE_TBL");
 
@@ -273,7 +328,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<UserIdentityDocsTbl>(entity =>
             {
                 entity.HasKey(e => e.Uidid)
-                    .HasName("PK__USER_IDE__D06B57A57E6A56A5");
+                    .HasName("PK__USER_IDE__D06B57A5AFF9F264");
 
                 entity.ToTable("USER_IDENTITY_DOCS_TBL");
 
@@ -304,19 +359,20 @@ namespace Vehicle_loan.Models
                 entity.HasOne(d => d.U)
                     .WithMany(p => p.UserIdentityDocsTbl)
                     .HasForeignKey(d => d.Uid)
-                    .HasConstraintName("FK__USER_IDENTI__UID__4CA06362");
+                    .HasConstraintName("FK__USER_IDENTI__UID__49C3F6B7");
             });
 
             modelBuilder.Entity<UserInfoTbl>(entity =>
             {
                 entity.HasKey(e => e.Uiid)
-                    .HasName("PK__USER_INF__B1FE7ED3D18BCA55");
+                    .HasName("PK__USER_INF__B1FE7ED30F3775C4");
 
                 entity.ToTable("USER_INFO_TBL");
 
                 entity.Property(e => e.Uiid).HasColumnName("UIID");
 
                 entity.Property(e => e.AccountNo)
+                    .IsRequired()
                     .HasColumnName("ACCOUNT_NO")
                     .HasMaxLength(30)
                     .IsUnicode(false);
@@ -336,6 +392,11 @@ namespace Vehicle_loan.Models
 
                 entity.Property(e => e.LastName)
                     .HasColumnName("LAST_NAME")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MiddleName)
+                    .HasColumnName("MIDDLE_NAME")
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
@@ -366,21 +427,16 @@ namespace Vehicle_loan.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.AccountNoNavigation)
-                    .WithMany(p => p.UserInfoTbl)
-                    .HasForeignKey(d => d.AccountNo)
-                    .HasConstraintName("FK__USER_INFO__ACCOU__3E52440B");
-
                 entity.HasOne(d => d.U)
                     .WithMany(p => p.UserInfoTbl)
                     .HasForeignKey(d => d.Uid)
-                    .HasConstraintName("FK__USER_INFO_T__UID__3D5E1FD2");
+                    .HasConstraintName("FK__USER_INFO_T__UID__3B75D760");
             });
 
             modelBuilder.Entity<UserTbl>(entity =>
             {
                 entity.HasKey(e => e.Uid)
-                    .HasName("PK__USER_TBL__C5B19602DAAEC733");
+                    .HasName("PK__USER_TBL__C5B1960209B189FA");
 
                 entity.ToTable("USER_TBL");
 
@@ -400,7 +456,7 @@ namespace Vehicle_loan.Models
             modelBuilder.Entity<VehicleDetailsTbl>(entity =>
             {
                 entity.HasKey(e => e.VId)
-                    .HasName("PK__VEHICLE___B35D77ACBE7067AA");
+                    .HasName("PK__VEHICLE___B35D77ACDEBE178B");
 
                 entity.ToTable("VEHICLE_DETAILS_TBL");
 
@@ -420,7 +476,7 @@ namespace Vehicle_loan.Models
                 entity.HasOne(d => d.CarMake)
                     .WithMany(p => p.VehicleDetailsTbl)
                     .HasForeignKey(d => d.CarMakeId)
-                    .HasConstraintName("FK__VEHICLE_D__CAR_M__49C3F6B7");
+                    .HasConstraintName("FK__VEHICLE_D__CAR_M__46E78A0C");
             });
 
             OnModelCreatingPartial(modelBuilder);
