@@ -5723,19 +5723,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SUCHET BHAKHAN\\.nuget\\packages\\": {}
+    "C:\\Users\\wikib\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\Vehicle_loan.csproj",
+      "projectUniqueName": "D:\\Documents\\VS Projects\\Vehicle_loan_webapi\\Vehicle_loan\\Vehicle_loan.csproj",
       "projectName": "Vehicle_loan",
-      "projectPath": "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\Vehicle_loan.csproj",
-      "packagesPath": "C:\\Users\\SUCHET BHAKHAN\\.nuget\\packages\\",
-      "outputPath": "F:\\C# PROJECTS\\Vehicle_loan\\Vehicle_loan\\obj\\",
+      "projectPath": "D:\\Documents\\VS Projects\\Vehicle_loan_webapi\\Vehicle_loan\\Vehicle_loan.csproj",
+      "packagesPath": "C:\\Users\\wikib\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\VS Projects\\Vehicle_loan_webapi\\Vehicle_loan\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SUCHET BHAKHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wikib\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

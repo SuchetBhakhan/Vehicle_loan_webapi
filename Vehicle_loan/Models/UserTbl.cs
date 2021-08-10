@@ -11,7 +11,6 @@ namespace Vehicle_loan.Models
     {
         public UserTbl()
         {
-            BankPaymentsTbl = new HashSet<BankPaymentsTbl>();
             EmploymentDetailsTbl = new HashSet<EmploymentDetailsTbl>();
             LoanApplicationTbl = new HashSet<LoanApplicationTbl>();
             LoanDetailsTbl = new HashSet<LoanDetailsTbl>();
@@ -23,7 +22,6 @@ namespace Vehicle_loan.Models
         public string EmailId { get; set; }
         public string Apassword { get; set; }
 
-        public virtual ICollection<BankPaymentsTbl> BankPaymentsTbl { get; set; }
         public virtual ICollection<EmploymentDetailsTbl> EmploymentDetailsTbl { get; set; }
         public virtual ICollection<LoanApplicationTbl> LoanApplicationTbl { get; set; }
         public virtual ICollection<LoanDetailsTbl> LoanDetailsTbl { get; set; }

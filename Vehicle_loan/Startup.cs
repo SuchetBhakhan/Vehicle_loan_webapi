@@ -16,6 +16,9 @@ namespace Vehicle_loan
 {
     public class Startup
     {
+
+        readonly string myAngularLinkName = "angularOrigin";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +29,18 @@ namespace Vehicle_loan
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: myAngularLinkName,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200")
+                                                          .AllowAnyHeader()
+                                                          .AllowAnyMethod();
+                                  });
+            });
+
             services.AddControllers();
             services.AddDbContext<VEHICLE_LOANContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DbCon")));
         }
@@ -39,6 +54,8 @@ namespace Vehicle_loan
             }
 
             app.UseRouting();
+
+            app.UseCors(myAngularLinkName);
 
             app.UseAuthorization();
 
