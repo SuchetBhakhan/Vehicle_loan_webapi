@@ -9,11 +9,6 @@ namespace Vehicle_loan.Models
 {
     public partial class LoanDetailsTbl
     {
-        public LoanDetailsTbl()
-        {
-            BankPaymentsTbl = new HashSet<BankPaymentsTbl>();
-        }
-
         public int Ldtid { get; set; }
         public int? Lappid { get; set; }
         public int? Uid { get; set; }
@@ -21,6 +16,5 @@ namespace Vehicle_loan.Models
 
         public virtual LoanApplicationTbl Lapp { get; set; }
         public virtual UserTbl U { get; set; }
-        public virtual ICollection<BankPaymentsTbl> BankPaymentsTbl { get; set; }
     }
 }

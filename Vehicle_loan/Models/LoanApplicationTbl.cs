@@ -16,6 +16,7 @@ namespace Vehicle_loan.Models
 
         public int Lappid { get; set; }
         public int? Uid { get; set; }
+        public int? Vid { get; set; }
         public decimal? LoanAmmount { get; set; }
         public int? LoanTenure { get; set; }
         public decimal? RateOfInterest { get; set; }
@@ -25,6 +26,7 @@ namespace Vehicle_loan.Models
 
         public virtual StatusTbl Status { get; set; }
         public virtual UserTbl U { get; set; }
+        public virtual VehicleDetailsTbl V { get; set; }
         public virtual ICollection<LoanDetailsTbl> LoanDetailsTbl { get; set; }
     }
 }
