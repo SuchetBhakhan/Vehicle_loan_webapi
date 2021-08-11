@@ -9,11 +9,17 @@ namespace Vehicle_loan.Models
 {
     public partial class VehicleDetailsTbl
     {
+        public VehicleDetailsTbl()
+        {
+            LoanApplicationTbl = new HashSet<LoanApplicationTbl>();
+        }
+
         public int VId { get; set; }
         public int? CarMakeId { get; set; }
         public decimal? ExShowroomPrice { get; set; }
         public string CarModel { get; set; }
 
         public virtual CarMakeTbl CarMake { get; set; }
+        public virtual ICollection<LoanApplicationTbl> LoanApplicationTbl { get; set; }
     }
 }

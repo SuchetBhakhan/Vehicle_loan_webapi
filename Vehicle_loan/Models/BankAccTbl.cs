@@ -14,6 +14,7 @@ namespace Vehicle_loan.Models
             UserInfoTbl = new HashSet<UserInfoTbl>();
         }
 
+        public int Bid { get; set; }
         public string AccountNo { get; set; }
 
         public virtual ICollection<UserInfoTbl> UserInfoTbl { get; set; }

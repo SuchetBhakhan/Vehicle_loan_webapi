@@ -7,22 +7,22 @@ using System.Collections.Generic;
 
 namespace Vehicle_loan.Models
 {
-    public partial class UserInfoTbl
+    public partial class ViewUserDashboardView
     {
-        public int Uiid { get; set; }
-        public int? Uid { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int? Age { get; set; }
         public string Gender { get; set; }
         public string MobileNo { get; set; }
-        public string Uaddress { get; set; }
-        public string Ustate { get; set; }
-        public string Ucity { get; set; }
-        public string PinCode { get; set; }
-        public int? AccountNo { get; set; }
-
-        public virtual BankAccTbl AccountNoNavigation { get; set; }
-        public virtual UserTbl U { get; set; }
+        public string EmailId { get; set; }
+        public string CarMake { get; set; }
+        public string CarModel { get; set; }
+        public decimal? ExShowroomPrice { get; set; }
+        public decimal? LoanAmmount { get; set; }
+        public int? LoanTenure { get; set; }
+        public decimal? RateOfInterest { get; set; }
+        public int Uid { get; set; }
+        public int VId { get; set; }
+        public int Lappid { get; set; }
     }
 }
